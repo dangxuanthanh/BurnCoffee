@@ -58,7 +58,15 @@ $kh = Session::has('khachhang');
 														<a href="#"><span class="icon-eye"></span></a>
 													</li>
 													<li>
-														<a href="#"><span class="icon-shopping-cart"></span></a>
+														<form id="cartform-{{ $showsp->Id_SP }}">
+															@csrf
+															<div class="div" style="display: none;">
+																<input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
+															</div>
+															<div class="text-center">
+																<button type="submit"><span class="icon-shopping-cart"></span></button>
+															</div>
+														</form>
 													</li>
 												</ul>
 											</div>
@@ -67,23 +75,8 @@ $kh = Session::has('khachhang');
 												{{-- <p class="mota">{{ $showsp->MoTa }}</p> --}}
 												<p class="price"><span>{{ $showsp->Gia }} đ</span></p>
 												{{-- <p><a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}" class="btn btn-primary btn-outline-primary">Chi tiết</a></p> --}}
-
-												<form id="cartform-{{ $showsp->Id_SP }}" class="lk-{{ $showsp->Id_SP }}">
-													@csrf
-													<div class="div" style="display: none;">
-														<input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
-													</div>
-													<div class="text-center">
-														<button class="btn btn-primary btn-outline-primary" type="submit">Thêm</button>
-													</div>
-												</form>
-
 												<script>
-													var idkh = {
-														{
-															$kh
-														}
-													}
+													var idkh = {{$kh}}
 													$('#cartform-{{ $showsp->Id_SP }}').submit(function(e) {
 														e.preventDefault();
 														if (idkh > 0) {
@@ -139,7 +132,15 @@ $kh = Session::has('khachhang');
 														<a href="#"><span class="icon-eye"></span></a>
 													</li>
 													<li>
-														<a href="#"><span class="icon-shopping-cart"></span></a>
+														<form id="cartform-{{ $showsp->Id_SP }}">
+															@csrf
+															<div class="div" style="display: none;">
+																<input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
+															</div>
+															<div class="text-center">
+																<button type="submit"><span class="icon-shopping-cart"></span></button>
+															</div>
+														</form>
 													</li>
 												</ul>
 											</div>
@@ -148,28 +149,13 @@ $kh = Session::has('khachhang');
 												{{-- <p class="mota">{{ $showsp->MoTa }}</p> --}}
 												<p class="price"><span>{{ $showsp->Gia }} đ</span></p>
 												{{-- <p><a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}" class="btn btn-primary btn-outline-primary">Chi tiết</a></p> --}}
-
-												<form id="cartform-{{ $showsp->Id_SP }}" class="lk-{{ $showsp->Id_SP }}">
-													@csrf
-													<div class="div" style="display: none;">
-														<input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
-													</div>
-													<div class="text-center">
-														<button class="btn btn-primary btn-outline-primary" type="submit">Thêm</button>
-													</div>
-												</form>
-
 											</div>
 
 										</div>
 									</div>
 
 									<script>
-										var idkh = {
-											{
-												$kh
-											}
-										}
+										var idkh = {{$kh}}
 										$('#cartform-{{ $showsp->Id_SP }}').submit(function(e) {
 											e.preventDefault();
 											if (idkh > 0) {

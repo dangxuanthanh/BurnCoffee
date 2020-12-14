@@ -1,6 +1,3 @@
-<?php
-	$cart = \Cart::session(Session::get('khachhang')['Id_KH'])->get($sanpham->Id_SP);
-?>
 @extends('layoutchild')
 	@include('services.backG')
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -12,6 +9,9 @@
 				</div>
 				<div class="col-lg-6 product-details pl-md-5 ftco-animate">
 					@if (Session::has('khachhang'))
+					<?php
+						$cart = \Cart::session(Session::get('khachhang')['Id_KH'])->get($sanpham->Id_SP);
+					?>
 					@if ($cart)
 					<form id="updateform1">
 						{{ csrf_field() }}

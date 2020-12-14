@@ -18,29 +18,38 @@
           ?>
             @foreach ($sanpham as $showsp)
             <?php
-            $gh = DB::table('giohang')->select('Id_GH', 'Id_SP', 'So_Luong', 'Id_KH')->where('Id_SP', '=',$showsp->Id_SP)->first();
-          ?>
+                $gh = DB::table('giohang')->select('Id_GH', 'Id_SP', 'So_Luong', 'Id_KH')->where('Id_SP', '=',$showsp->Id_SP)->first();
+            ?>
           <div class="col-md-3">
             <div class="menu-entry">
-                <a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}" class="img" style="background-image: url(images/{{ $showsp->urlHinh1 }});"></a>
-                <div class="text text-center pt-4">
-                  <h3><a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}"><?= $showsp->Ten_SP ?></a></h3>
-                  {{-- <p class="mota">{{ $showsp->MoTa }}</p> --}}
-                  <p class="price"><span>{{ $showsp->Gia }} đ</span></p>
-                  {{-- <p><a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}" class="btn btn-primary btn-outline-primary">Chi tiết</a></p> --}}
-                  
+              <div class="img">
+                <a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}" ;">
+                  <img src="images/<?= $showsp->urlHinh1 ?>" alt="">
+                </a>
+                <ul class="featured_item">
+                  <li>
+                    <a href="#"><span class="icon-eye"></span></a>
+                  </li>
+                  <li>
                     <form id="cartform-{{ $showsp->Id_SP }}">
                       @csrf
                       <div class="div" style="display: none;">
                         <input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
                       </div>
                       <div class="text-center">
-                        <button class="btn btn-primary btn-outline-primary" type="submit">Thêm</button>
+                        <button type="submit"><span class="icon-shopping-cart"></span></button>
                       </div>
                     </form>
-                </div>
-                
+                  </li>
+                </ul>
               </div>
+              <div class="text pt-4">
+                <h3><a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}"><?= $showsp->Ten_SP ?></a></h3>
+                {{-- <p class="mota">{{ $showsp->MoTa }}</p> --}}
+                <p class="price"><span>{{ number_format($showsp->Gia) }} đ</span></p>
+                {{-- <p><a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}" class="btn btn-primary btn-outline-primary">Chi tiết</a></p> --}}
+              </div>
+            </div>
           </div>
         
           <script>

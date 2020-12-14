@@ -16,7 +16,7 @@ $kh = Session::has('khachhang');
 		<div class="row  border-box">
 			@foreach($bestseller as $showsp)
 			<?php
-			$gh = DB::table('giohang')->select('Id_GH', 'Id_SP', 'So_Luong', 'Id_KH')->where('Id_SP', '=', $showsp->Id_SP)->first();
+				$gh = DB::table('giohang')->select('Id_GH', 'Id_SP', 'So_Luong', 'Id_KH')->where('Id_SP', '=', $showsp->Id_SP)->first();
 			?>
 			<div class="col-md-3">
 				<div class="menu-entry">
@@ -29,7 +29,15 @@ $kh = Session::has('khachhang');
 								<a href="#"><span class="icon-eye"></span></a>
 							</li>
 							<li>
-								<a href="#"><span class="icon-shopping-cart"></span></a>
+								<form id="cartform1-{{ $showsp->Id_SP }}">
+									@csrf
+									<div class="div" style="display: none;">
+										<input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
+									</div>
+									<div class="text-center">
+										<button type="submit"><span class="icon-shopping-cart"></span></button>
+									</div>
+								</form>
 							</li>
 						</ul>
 					</div>
@@ -37,26 +45,13 @@ $kh = Session::has('khachhang');
 						<h3><a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}"><?= $showsp->Ten_SP ?></a></h3>
 						{{-- <p class="mota">{{ $showsp->MoTa }}</p> --}}
 						<p class="price"><span>{{ number_format($showsp->Gia) }} đ</span></p>
-						{{-- <p><a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}" class="btn btn-primary btn-outline-primary">Chi tiết</a></p> --}}
-
-						<form id="cartform1-{{ $showsp->Id_SP }}">
-							{{ csrf_field() }}
-							<div class="div" style="display: none;">
-								<input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
-							</div>
-						</form>
-
 					</div>
 
 				</div>
 			</div>
 
 			<script>
-				var idkh = {
-					{
-						$kh
-					}
-				}
+				var idkh = {{$kh}}
 				$('#cartform1-{{ $showsp->Id_SP }}').submit(function(e) {
 					e.preventDefault();
 					if (idkh > 0) {

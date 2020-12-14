@@ -55,7 +55,15 @@ $kh = Session::has('khachhang');
 														<a href="#"><span class="icon-eye"></span></a>
 													</li>
 													<li>
-														<a href="#"><span class="icon-shopping-cart"></span></a>
+														<form id="cartform-{{ $showsp->Id_SP }}">
+															@csrf
+															<div class="div" style="display: none;">
+																<input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
+															</div>
+															<div class="text-center">
+																<button type="submit"><span class="icon-shopping-cart"></span></button>
+															</div>
+														</form>
 													</li>
 												</ul>
 											</div>
@@ -65,25 +73,8 @@ $kh = Session::has('khachhang');
 												<p class="price"><span>{{ number_format($showsp->Gia) }} đ</span></p>
 												{{-- <p><a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}" class="btn btn-primary btn-outline-primary">Chi tiết</a></p> --}}
 
-												<form id="cartform-{{ $showsp->Id_SP }}">
-													{{ csrf_field() }}
-													<div class="div" style="display: none;">
-														{{-- <input type="text" id="Ten_SP-{{ $showsp->Id_SP }}" value="{{ $showsp->Ten_SP }}">
-														<input type="text" id="Id_SP-{{ $showsp->Id_SP }}" value="{{ $showsp->Id_SP }}">
-														<input type="text" id="So_Luong-{{ $showsp->Id_SP }}" value="1">
-														<input type="text" id="Id_KH-{{ $showsp->Id_SP }}" value="{{ Session::get('khachhang')['Id_KH'] ?? '' }}">
-														<input type="text" id="AnHien" value="1">
-														<input type="text" id="ThuTu" value="1"> --}}
-														<input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
-													</div>
-												</form>
-
 												<script>
-													var idkh = {
-														{
-															$kh
-														}
-													}
+													var idkh = {{$kh}}
 													$('#cartform-{{ $showsp->Id_SP }}').submit(function(e) {
 														e.preventDefault();
 														if (idkh > 0) {
@@ -99,6 +90,7 @@ $kh = Session::has('khachhang');
 																	if (response) {
 																		$("#change-item-cart").empty();
 																		$("#change-item-cart").html(response);
+																		
 																		alertify.success('Sản phẩm đã được thêm');
 																	}
 																}
@@ -139,7 +131,15 @@ $kh = Session::has('khachhang');
 														<a href="#"><span class="icon-eye"></span></a>
 													</li>
 													<li>
-														<a href="#"><span class="icon-shopping-cart"></span></a>
+														<form id="cartform-{{ $showsp->Id_SP }}">
+															@csrf
+															<div class="div" style="display: none;">
+																<input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
+															</div>
+															<div class="text-center">
+																<button type="submit"><span class="icon-shopping-cart"></span></button>
+															</div>
+														</form>
 													</li>
 												</ul>
 											</div>
@@ -148,34 +148,12 @@ $kh = Session::has('khachhang');
 												{{-- <p class="mota">{{ $showsp->MoTa }}</p> --}}
 												<p class="price"><span>{{ number_format($showsp->Gia) }} đ</span></p>
 												{{-- <p><a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}" class="btn btn-primary btn-outline-primary">Chi tiết</a></p> --}}
-
-												<form id="cartform-{{ $showsp->Id_SP }}">
-													@csrf
-													<div class="div" style="display: none;">
-														{{-- <input type="text" id="Ten_SP-{{ $showsp->Id_SP }}" value="{{ $showsp->Ten_SP }}">
-														<input type="text" id="Id_SP-{{ $showsp->Id_SP }}" value="{{ $showsp->Id_SP }}">
-														<input type="text" id="So_Luong-{{ $showsp->Id_SP }}" value="1">
-														<input type="text" id="Id_KH-{{ $showsp->Id_SP }}" value="{{ Session::get('khachhang')['Id_KH'] ?? '' }}">
-														<input type="text" id="AnHien" value="1">
-														<input type="text" id="ThuTu" value="1"> --}}
-														<input type="text" id="id-{{ $showsp->Id_SP }}" name="id" value="{{ $showsp->Id_SP }}">
-													</div>
-													<div class="text-center">
-														<button class="btn btn-primary btn-outline-primary" type="submit">Thêm</button>
-													</div>
-												</form>
-
 											</div>
-
 										</div>
 									</div>
 
 									<script>
-										var idkh = {
-											{
-												$kh
-											}
-										}
+										var idkh = {{$kh}}
 										$('#cartform-{{ $showsp->Id_SP }}').submit(function(e) {
 											e.preventDefault();
 											if (idkh > 0) {
