@@ -8115,7 +8115,30 @@ h1, h2, h3, h4, h5,
     border-radius: 50%;
     transition: all 0.3s;
   }
+  .menu-entry .img .featured_item li button{
+    font-size: 16px;
+    margin: 0 10px;
+    height: 40px;
+    width: 40px;
+    background: #c49b63;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+    border: 0;
+  }
+  .menu-entry .img .featured_item li button:focus{
+    outline: none;
+  }
+  span.icon-shopping-cart {
+    color: black;
+}
   .menu-entry .img .featured_item li a:hover{
+    background-color: #fff;
+    transform: rotate(360deg);
+  }
+  .menu-entry .img .featured_item li button:hover{
     background-color: #fff;
     transform: rotate(360deg);
   }
