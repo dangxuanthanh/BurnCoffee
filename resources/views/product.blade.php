@@ -52,7 +52,7 @@ $kh = Session::has('khachhang');
 												</a>
 												<ul class="featured_item">
 													<li>
-														<a href="#"><span class="icon-eye"></span></a>
+														<a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}"><span class="icon-eye"></span></a>
 													</li>
 													<li>
 														<form id="cartform-{{ $showsp->Id_SP }}">
@@ -128,7 +128,7 @@ $kh = Session::has('khachhang');
 												</a>
 												<ul class="featured_item">
 													<li>
-														<a href="#"><span class="icon-eye"></span></a>
+														<a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}"><span class="icon-eye"></span></a>
 													</li>
 													<li>
 														<form id="cartform-{{ $showsp->Id_SP }}">
