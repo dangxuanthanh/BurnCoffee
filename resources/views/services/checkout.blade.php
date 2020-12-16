@@ -117,7 +117,7 @@
 					<input type="text" name="Tong_Tien" id="Tong_Tien" style="display: none;">
 					<input type="text" name="AnHien" value="1" style="display: none;">
 					<input type="text" name="ThuTu" value="1" style="display: none;">
-					<input type="text" name="TrangThai" value="1" style="display: none;">
+					<input type="text" name="TrangThai" id="PT_TT" style="display: none;">
 					<input type="text" name="Id_KH" value="{{ Session::get('khachhang')['Id_KH'] }}" style="display: none;">
 					<input type="date" name="Ngay_Dang" id="datePicker" style="display: none;">
 					<script>
@@ -132,7 +132,7 @@
 						<div class="form-group">
 							<div class="col-md-12">
 								<div class="radio">
-									<label  onchange="shipcsss()"><input type="radio" name="PT_TT" value="1" required class="mr-2">Trực tiếp</label>
+									<label  onchange="shipcsss()"><input type="radio" name="PT_TT" id="PT_TT" value="1" required class="mr-2">Trực tiếp</label>
 								</div>
 							</div>
 						</div>
@@ -259,6 +259,8 @@
 				document.querySelector('#Tong_Tien').value = totalc;
 			}	
 		}
+		var tt = 2;
+		document.querySelector("#PT_TT").value = tt;
 	}
 
 	function ckcsss() {
@@ -288,6 +290,8 @@
 				document.querySelector('#Tong_Tien').value = totalc;
 			}	
 		}
+		var tt = 1;
+		document.querySelector("#PT_TT").value = tt;
 	}
 
 	function vdcsss() {
@@ -316,6 +320,8 @@
 				document.querySelector('#Tong_Tien').value = totalc;
 			}	
 		}
+		var tt = 1;
+		document.querySelector("#PT_TT").value = tt;
 	}
 	var tt = sum + ship;
 	document.querySelector('.ttt').value = tt;

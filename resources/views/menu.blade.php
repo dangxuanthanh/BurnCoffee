@@ -12,10 +12,10 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Trang chủ</a></li>
             <li class="nav-item"><a href="{{ url('/gioi-thieu') }}" class="nav-link">Giới thiệu</a></li>
+            <li class="nav-item"><a href="{{ url('/san-pham') }}" class="nav-link">Sản Phẩm</a></li>
             <li class="nav-item dropdown">
-                <a href="{{ url('/san-pham') }}" class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Sản phẩm</a>
+                <a href="{{ url('/san-pham') }}" class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Danh Mục</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                    <a class="dropdown-item" href="{{ url('/san-pham') }}">Tất cả</a>
                     @foreach($danhmuc as $dm)
                         <a class="dropdown-item" href="{{action("ProductController@sptodm",['Id_DM'=>$dm->Id_DM])}}"><?= $dm->Ten_DM ?></a>
                     @endforeach

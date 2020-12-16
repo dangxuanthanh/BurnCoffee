@@ -24,12 +24,12 @@ $kh = Session::has('khachhang');
 
 						<div class="nav ftco-animate nav-pills justify-content-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 							@foreach($loaisp as $loai)
-							@if ($loop->first)
-							<a class="nav-link active" id="v-pills-<?= $loai->Id_LoaiSP ?>-tab" data-toggle="pill" href="#v-pills-<?= $loai->Id_LoaiSP ?>" role="tab" aria-controls="v-pills-<?= $loai->Id_LoaiSP ?>" aria-selected="true"><?= $loai->Ten_LoaiSP ?></a>
-							@else
+								@if ($loop->first)
+									<a class="nav-link active" id="v-pills-<?= $loai->Id_LoaiSP ?>-tab" data-toggle="pill" href="#v-pills-<?= $loai->Id_LoaiSP ?>" role="tab" aria-controls="v-pills-<?= $loai->Id_LoaiSP ?>" aria-selected="true"><?= $loai->Ten_LoaiSP ?></a>
+									@else
 
-							<a class="nav-link" id="v-pills-<?= $loai->Id_LoaiSP ?>-tab" data-toggle="pill" href="#v-pills-<?= $loai->Id_LoaiSP ?>" role="tab" aria-controls="v-pills-<?= $loai->Id_LoaiSP ?>" aria-selected="false"><?= $loai->Ten_LoaiSP ?></a>
-							@endif
+									<a class="nav-link" id="v-pills-<?= $loai->Id_LoaiSP ?>-tab" data-toggle="pill" href="#v-pills-<?= $loai->Id_LoaiSP ?>" role="tab" aria-controls="v-pills-<?= $loai->Id_LoaiSP ?>" aria-selected="false"><?= $loai->Ten_LoaiSP ?></a>
+								@endif
 							@endforeach
 						</div>
 
@@ -47,7 +47,7 @@ $kh = Session::has('khachhang');
 										->where('sanpham.AnHien', '=', '1')->get();
 									?>
 									@foreach($sanpham as $showsp)
-									<div class=" col-md-3">
+									<div class="col-md-3">
 										<div class="menu-entry">
 											<div class="img">
 												<a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}" ;">
@@ -55,7 +55,7 @@ $kh = Session::has('khachhang');
 												</a>
 												<ul class="featured_item">
 													<li>
-														<a href="#"><span class="icon-eye"></span></a>
+														<a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}"><span class="icon-eye"></span></a>
 													</li>
 													<li>
 														<form id="cartform-{{ $showsp->Id_SP }}">
@@ -129,7 +129,7 @@ $kh = Session::has('khachhang');
 												</a>
 												<ul class="featured_item">
 													<li>
-														<a href="#"><span class="icon-eye"></span></a>
+														<a href="{{action("ProductController@detailproduct",['Id_SP'=>$showsp->Id_SP])}}"><span class="icon-eye"></span></a>
 													</li>
 													<li>
 														<form id="cartform-{{ $showsp->Id_SP }}">

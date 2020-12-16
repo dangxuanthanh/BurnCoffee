@@ -94,8 +94,6 @@
                                         $phuong = DB::table('phuong')->select('Id_P', 'Ten_Phuong')->where('Id_P', '=', $kh->Phuong)->first();
                                     ?>
                                 </div>
-
-                                
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -156,73 +154,46 @@
                         </ul>
                     </div>
                 </div>
+                <span class="rewards_new_header_tab_item_point">Điểm Tích Được :</span></a>
+                <?php
+                    $diemtich = (Session::get('khachhang')['Tich_diem'] / 1000)/3000 * 100;
+                ?>
+                <div class="progress">
+                    <div id="ctc" class="progress-bar" role="progressbar" style="width: {{ $diemtich }}%" aria-valuenow="{{ $diemtich }}" aria-valuemin="0" aria-valuemax="3000"></div>
+                </div>
+                <script>
+                    var diemtich = {{ $diemtich }}
+                    if (diemtich < 100) {
+                        document.getElementById("ctc").className = "bg-warning";
+                    } else if(diemtich >= 100) {
+                        document.getElementById("ctc").className = "bg-nau";
+                    } else if(diemtich >= 200){
+                        document.getElementById("ctc").className = "bg-w";
+                    } else if(diemtich >= 500){
+                        document.getElementById("ctc").className = "bg-yl";
+                    }else{
+                        document.getElementById("ctc").className = "bg-or";
+                    }
+                </script>
             </div>
         </div>
     </div>
 </section>
 <style>
-    .rewards_new_header_tab ul {
-    padding: 0;
-}
-.display_flex {
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-}
-
-.flex_wrap {
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-.rewards_new_header_tab_item {
-    padding: 20px 10px 12px 10px;
-    border-bottom: 12px solid #000;
-    cursor: pointer;
-}
-.rewards_new_header_tab_item span.rewards_new_header_tab_item_icon {
-    margin-bottom: 15px;
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
-}
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-.flex-auto {
-    flex: auto;
-    -webkit-flex: auto;
-    -ms-flex: auto;
-    display: block;
-}
-.rewards_new_header_tab_item.active {
-    border-bottom-width: 24px!important;
-}
-.rewards_new_header_tab_item span {
-    display: block;
-}
-.rewards_new_header_tab_item span.rewards_new_header_tab_item_title {
-    font-weight: 700;
-    position: relative;
-    margin-top: 0;
-    font-size: 16px;
-    font-family: 'BebasNeue','Lato', "Times New Roman", serif;
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
-}
-
-.rewards_new_header_tab_item span.rewards_new_header_tab_item_icon img {
-    max-width: 40%;
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
-}
-span.rewards_new_header_tab_item_icon img {
-    border-radius: 50%;
-}
+    .bg-warning{
+        background-color: #f0b879 !important;
+    }
+    .bg-nau{
+        background-color: #94651e;
+    }
+    .bg-w{
+        background-color: #ededed;
+    }
+    .bg-yl{
+        background-color: #f2c446;
+    }
+    .bg-or{
+        background-color: #ed8626;
+    }
 </style>
+@include('bill')
