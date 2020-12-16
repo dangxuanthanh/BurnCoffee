@@ -36,7 +36,7 @@
                 <?php
                     $cartitem = \Cart::session(Session::get('khachhang')['Id_KH'])->getContent();
                 ?>
-                <li class="nav-item cart">
+                <li class="nav-item cart" id="change-item-cart">
                     <a href="{{ url('/gio-hang') }}" class="nav-link">
                         <span class="icon icon-shopping_cart"></span>
                         <span class="bag d-flex justify-content-center align-items-center">
@@ -44,7 +44,7 @@
                         </span>
                     </a>
                     <div class="khung">
-                        <div id="change-item-cart">
+                        <div >
                             <table class="carts">
                                 <thead>
                                     <tr>
