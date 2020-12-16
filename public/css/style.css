@@ -7820,7 +7820,7 @@ h1, h2, h3, h4, h5,
 
 @media (min-width: 992px) {
   .ftco-intro {
-    margin-top: -130px; } }
+    } }
 
 .ftco-intro .container-wrap {
   z-index: 2 !important;
@@ -8091,7 +8091,7 @@ h1, h2, h3, h4, h5,
   .menu-entry .img  .featured_item{
     position: absolute;
     left: 0;
-    bottom: -50px;
+    bottom: -100px;
     width: 100%;
     text-align: center;
     transition: all 0.3s;

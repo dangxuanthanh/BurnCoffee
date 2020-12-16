@@ -3,7 +3,11 @@
         <div class="container-fluid">
             <div class="header-mobile-inner">
 
-                <a class="navbar-brand" href="{{ url('/qt') }}">Burn Coffee</a>
+                <div class="logo">
+                    <a class="navbar-brand" href="{{ url('/qt') }}">
+                        <img src="images/logoburncoffee3.png" alt="BurnCoffee">
+                    </a>
+                </div>
 
                 <button class="hamburger hamburger--slider" type="button">
                     <span class="hamburger-box">
@@ -77,7 +81,9 @@
 <!-- MENU SIDEBAR-->
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
-        <a class="navbar-brand" href="{{ url('/qt') }}">Burn Coffee</a>
+        <a href="{{ url('/qt') }}">
+            <img src="images/logoburncoffee3.png" alt="BurnCoffee">
+        </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
